@@ -9,7 +9,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="min-h-screen bg-gray-100 dark:bg-gray-800 ">
+    <div class="min-h-screen bg-gray-100">
         <div>
             <Navbar/>
         </div>
