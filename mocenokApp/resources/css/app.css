@@ -22,6 +22,13 @@
     /*Blue color palette*/
     --color-jblue-50 : #EAF0FF;
     --color-jblue-100: #C3D1F7;
+    --color-jblue-200: #9DB4EF;
+    --color-jblue-300: #7797E7;
+    --color-jblue-400: #4F6BC0;
     --color-jblue-500: #1E3A8A;
+    --color-jblue-600: #1A3378;
     --color-jblue-700: #162E6B;
+    --color-jblue-800: #11245A;
+    --color-jblue-900: #0D1A48;
+    --color-jblue-950: #080F2E;
 }
