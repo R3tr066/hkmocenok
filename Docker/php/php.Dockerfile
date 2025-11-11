@@ -21,5 +21,5 @@ RUN composer global require laravel/installer
 
 FROM base AS production
 
-COPY --chown=www-data:www-data . /var/www/html . /app
+COPY --chown=www-data:www-data ../.. /var/www/html . /app
 WORKDIR /app/mocenokApp
