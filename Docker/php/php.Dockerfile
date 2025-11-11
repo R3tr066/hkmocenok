@@ -18,6 +18,7 @@ WORKDIR /app/mocenokApp
 
 USER www-data
 RUN composer global require laravel/installer
+RUN composer require inertiajs/inertia-laravel
 
 FROM base AS production
 
