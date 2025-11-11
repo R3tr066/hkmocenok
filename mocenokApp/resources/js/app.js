@@ -1,10 +1,17 @@
 import './bootstrap';
-import { createApp } from 'vue';
+import { createApp, h } from 'vue'
+import { createInertiaApp } from '@inertiajs/vue3'
 import 'flowbite';
 import '../css/app.css'
 
-import App from './components/App.vue';
-
-const app = createApp(App);
-
-app.mount('#app');
+createInertiaApp({
+    resolve: name => {
+        const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
+        return pages[`./Pages/${name}.vue`].default
+    },
+    setup({ el, App, props, plugin }) {
+        createApp({ render: () => h(App, props) })
+            .use(plugin)
+            .mount(el)
+    },
+})

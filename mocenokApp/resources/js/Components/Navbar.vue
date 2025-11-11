@@ -1,6 +1,6 @@
 <script setup>
 import {ref, computed} from 'vue'
-import {useTopBar} from '../composables/UseTopBar'
+import {useTopBar} from '../Composables/UseTopBar'
 
 const {isTopBarHidden} = useTopBar()
 

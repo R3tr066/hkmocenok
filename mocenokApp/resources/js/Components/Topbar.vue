@@ -1,6 +1,6 @@
 <script setup>
 import {onMounted, onUnmounted} from 'vue'
-import {useTopBar} from '../composables/UseTopBar'
+import {useTopBar} from '../Composables/UseTopBar'
 
 const {isTopBarHidden, setupScrollListener, cleanupScrollListener} = useTopBar()
 
