@@ -1,17 +1,26 @@
 <script setup>
-import {ref} from 'vue'
+import {ref, computed} from 'vue'
+import {useTopBar} from '../composables/UseTopBar'
+
+const {isTopBarHidden} = useTopBar()
 
 const isMobileMenuOpen = ref(false)
+const isTopBarVisible = ref(true)
 
 const toggleMobileMenu = () => {
     isMobileMenuOpen.value = !isMobileMenuOpen.value
 }
+
+const navbarTopClass = computed(() => {
+    return isTopBarVisible.value ? 'top-10' : 'top-0'
+})
 </script>
 
 <template>
-    <header class="bg-white">
+    <header :class="[
+    'fixed left-0 w-full bg-white shadow-md z-50 transition-all duration-300', isTopBarHidden ? 'top-0' : 'top-10']">
 
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
 
             <div class="flex h-16 items-center justify-between">
 
@@ -24,7 +33,7 @@ const toggleMobileMenu = () => {
                 </div>
 
                 <!--Desktop Navbar-->
-                <div class="hidden md:block">
+                <div class="hidden md:block ">
                     <nav aria-label="Global">
                         <ul class="flex items-center gap-6 text-xl font-semibold">
 

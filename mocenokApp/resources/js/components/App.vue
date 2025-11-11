@@ -2,6 +2,7 @@
 import {onMounted} from 'vue';
 import {initFlowbite} from 'flowbite';
 import Navbar from "./Navbar.vue";
+import Topbar from "./Topbar.vue";
 
 onMounted(() => {
     initFlowbite();
@@ -9,11 +10,114 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="min-h-screen bg-gray-100">
-        <div>
-            <Navbar/>
-        </div>
-    </div>
+    <topbar/>
+    <Navbar/>
+    <main class="min-h-screen bg-gray-50 pt-[104px]">
+        <RouterView/>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+    </main>
 
 </template>
 
