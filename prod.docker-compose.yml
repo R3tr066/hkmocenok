@@ -1,0 +1,80 @@
+services:
+  php:
+    build:
+      context: .
+      target: production
+      args:
+        USER_ID: ${DCUID:-1000}
+        GROUP_ID: ${DCGID:-1000}
+    container_name: "mocenok-php-prod"
+    ports:
+      - "80:8080"
+      - "443:8443"
+    environment:
+      APP_ENV: "production"
+      APP_DEBUG: "false"
+      APP_BASE_DIR: "/app/mocenokApp"
+      NGINX_WEBROOT: "/app/mocenokApp/public"
+      PHP_DATE_TIMEZONE: "Europe/Bratislava"
+      SSL_MODE: "mixed"
+      PHP_OPCACHE_ENABLE: "1"
+      PHP_FPM_PM: "dynamic"
+      PHP_FPM_PM_MAX_CHILDREN: "20"
+      PHP_FPM_PM_START_SERVERS: "2"
+      PHP_FPM_PM_MIN_SPARE_SERVERS: "1"
+      PHP_FPM_PM_MAX_SPARE_SERVERS: "3"
+      DB_CONNECTION: "pgsql"
+      DB_HOST: "db"
+      DB_PORT: "5432"
+      DB_DATABASE: "hkmocenok"
+      DB_USERNAME: "tom"
+      DB_PASSWORD: "${DB_PASSWORD}"
+    volumes:
+      - storage_data:/app/mocenokApp/storage
+      - bootstrap_cache:/app/mocenokApp/bootstrap/cache
+    networks:
+      - mocenok-network
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  db:
+    image: postgres:17.4-alpine3.21
+    container_name: "mocenok-db-prod"
+    environment:
+      POSTGRES_DB: "hkmocenok"
+      POSTGRES_USER: "tom"
+      POSTGRES_PASSWORD: "${DB_PASSWORD}"
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8"
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - mocenok-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tom -d hkmocenok"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    shm_size: 256mb
+
+networks:
+  mocenok-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local
+  storage_data:
+    driver: local
+  bootstrap_cache:
+    driver: local

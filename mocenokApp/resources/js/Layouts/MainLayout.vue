@@ -9,7 +9,7 @@ import Topbar from "../Components/Topbar.vue";
         <Navbar />
 
         <main>
-            <slot />
+            <slot/>
         </main>
     </div>
 </template>

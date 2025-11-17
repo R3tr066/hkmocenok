@@ -26,7 +26,7 @@ const navbarTopClass = computed(() => {
 
                 <!--Logo-->
                 <div class="md:flex md:items-center md:gap-12">
-                    <a class="block" href="#">
+                    <a class="block" href="/">
                         <span class="sr-only">Home</span>
                         <img src="/img/Logo.svg" alt="HK junior Močenok Logo" class="h-20 w-auto"/>
                     </a>
@@ -39,7 +39,12 @@ const navbarTopClass = computed(() => {
 
                             <li>
                                 <a class="relative text-jblue-700 transition-colors hover:text-jblue-400 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gold-500 after:transition-all after:duration-300 hover:after:w-full"
-                                   href="#"> Aktuality </a>
+                                   href="/aktuality"> Aktuality </a>
+                            </li>
+
+                            <li>
+                                <a class="relative text-jblue-700 transition-colors hover:text-jblue-400 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gold-500 after:transition-all after:duration-300 hover:after:w-full"
+                                   href="/zapasy"> Zápasy </a>
                             </li>
 
                             <li>
