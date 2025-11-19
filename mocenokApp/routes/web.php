@@ -1,6 +1,8 @@
 <?php
 
 use Inertia\Inertia;
+use App\Http\Controllers\MatchGameController;
+
 
 Route::get('/', function () {
     return Inertia::render('Home');
@@ -18,3 +20,6 @@ Route::get('/zapasy', function () {
 Route::get('/add-match', function () {
     return Inertia::render('Add-match');
 });
+
+Route::post('/add-match', [MatchGameController::class, 'store']);
+

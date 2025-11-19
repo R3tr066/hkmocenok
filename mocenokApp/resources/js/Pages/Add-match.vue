@@ -2,10 +2,12 @@
 import MainLayout from "../Layouts/MainLayout.vue";
 import AddMatchForm from "../Components/add-match-form.vue";
 
+
 export default {
     name: "Add-match",
     components: {AddMatchForm, MainLayout}
 }
+
 </script>
 
 <template>

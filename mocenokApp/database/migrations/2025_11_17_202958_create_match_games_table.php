@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('home_score')->nullable();
             $table->integer('away_score')->nullable();
 
-            $table->dateTime('match_date');
+            $table->date('match_date');
             $table->string('location')->nullable();
             $table->string('competition')->nullable();
             $table->string('season')->nullable();

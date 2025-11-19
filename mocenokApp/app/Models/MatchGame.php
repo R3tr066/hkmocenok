@@ -18,4 +18,9 @@ class MatchGame extends Model
         'status',
         'notes',
     ];
+    protected $casts = [
+        'match_date' => 'date',
+        'home_score' => 'integer',
+        'away_score' => 'integer'
+    ];
 }
