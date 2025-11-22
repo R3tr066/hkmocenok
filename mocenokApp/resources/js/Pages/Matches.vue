@@ -4,7 +4,7 @@ import MatchCard from "../Components/MatchCard.vue";
 
 export default {
     name: "Matches",
-    components: { MainLayout, MatchCard },
+    components: {MainLayout, MatchCard},
     props: {
         matches: Array
     },
@@ -16,11 +16,14 @@ export default {
 
 <template>
     <main-layout>
-        <main class="mt-[104px]">
-            <div v-for="match in matches"  :key="match.id">
-                <MatchCard :match="match"/>
+        <main class="mt-[104px] pt-5">
+            <div class="grid grid-cols-4 gap-2 justify-items-center-safe ">
+                <div v-for="match in matches" :key="match.id">
+                    <MatchCard :match="match"/>
+                </div>
             </div>
-            <a href="/add-match" class="relative text-black rounded-md bg-gold-500 mt-10 p-2 ">Add match</a>
+
+            <a href="/add-match" class="relative inline-block m-2 text-black rounded-md bg-gold-500 p-2">Add match</a>
         </main>
 
     </main-layout>
