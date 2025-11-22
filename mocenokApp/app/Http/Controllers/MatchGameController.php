@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\MatchGame;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+
 
 class MatchGameController extends Controller
 {
@@ -53,5 +55,10 @@ class MatchGameController extends Controller
             ]);
             return redirect()->back()->with('error', 'Failed to create match: ' . $e->getMessage());
         }
+    }
+
+    public function index(){
+        $getMatchGames = MatchGame::all();
+        return Inertia::render('Matches',['matches'=>$getMatchGames]);
     }
 }

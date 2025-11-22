@@ -1,6 +1,6 @@
 <script>
 import MainLayout from "../Layouts/MainLayout.vue";
-import AddMatchForm from "../Components/add-match-form.vue";
+import AddMatchForm from "../Components/AddMatchForm.vue";
 
 
 export default {
